@@ -1,0 +1,14 @@
+[Unit]
+Description=Minecraft Bedrock Dedicated Server (Claude Builds) with control port
+
+[Service]
+WorkingDirectory=%h/mc-bds
+ExecStart=/usr/bin/python3 -u %h/mc-bds/bds.py
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+TimeoutStopSec=60
+StandardOutput=null
+
+[Install]
+WantedBy=default.target
