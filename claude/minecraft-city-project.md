@@ -8,7 +8,7 @@ metadata:
   modified: 2026-11-14T12:37:57.778Z
 ---
 
-Started 2026-11-14. User plays Bedrock via mcpelauncher Flatpak (client 1.26.62.1); in-game player name FiscalToaster87.
+Started 2026-11-14. **All code + world snapshot live in git repo ~/mc-city** (~/mc-agent and ~/mc-bds/{bds.py,mcs.py,leveldat.py,packs} are symlinks into it; README.md/CLAUDE.md there; scripts/snapshot.sh commits the world, install.sh rebuilds on a new machine; MC_CITY_MAX_RING env extends the city, ring 6 complete). User plays Bedrock via mcpelauncher Flatpak (client 1.26.62.1); in-game player name FiscalToaster87.
 
 - Server: BDS 1.26.63.1 in ~/mc-bds/server, world `claude_build` (superflat, Beta APIs on), wrapped by ~/mc-bds/bds.py
   (control port 127.0.0.1:8767; `~/mc-bds/mcs.py 'cmd'` or JSON `{"op":...}`). systemd user unit `mc-bds` (linger on).
