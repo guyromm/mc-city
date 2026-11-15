@@ -47,7 +47,8 @@ def hall():
 def city():
     try: st = json.load(open(STATE))
     except Exception: return []
-    sites = sorted(st.get("built", {}).values(), key=lambda s: s.get("order", 0))[-MAX_SITES:]
+    sites = sorted((s for s in st.get("built", {}).values() if s.get("tour")),   # multi-cell builds: one record has the tour
+                   key=lambda s: s.get("order", 0))[-MAX_SITES:]
     if not sites: return []
     # visit newest sites in angular order around downtown so the flight path stays smooth
     sites.sort(key=lambda s: math.atan2(s["center"][1] - 0, s["center"][0] - 20))
