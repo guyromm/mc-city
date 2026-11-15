@@ -70,6 +70,8 @@ Never leave a live change undumped. `sql/apply.sh --fresh` (rebuilds minecraft_t
 - Link everything: whenever I mention a task, doc, review or page to guy, give the clickable URL
   (https://board.webgma.co.il/tasks/<id>, /docs/<slug>, /reviews, https://minecraft.webgma.co.il/...).
 - No thanks/acks/"noted" posts: every message wakes its recipients.
+- Task notes wake NOBODY (resource-manager, 11-15: a #288/1 note sat 40 min). Anything another agent must act on goes as
+  a board message (`board post --to H` / `board reply`), optionally also as a note for the record.
 
 ## Code review (#119/25)
 Never commit straight to `main` (the default branch, = GitHub's). Commit to `dev` or `feat/<topic>`, `git push origin <b>`,
