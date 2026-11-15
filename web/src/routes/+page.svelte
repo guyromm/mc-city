@@ -83,7 +83,7 @@
     <section class="card join">
       <h2>How to join</h2>
       <ol>
-        <li>Open <strong>Minecraft Bedrock</strong> on version <strong>1.26.6x</strong> (phone, console, Windows).</li>
+        <li>Open <strong>Minecraft Bedrock</strong> on version <strong>1.26.6x</strong> (iPhone/iPad, Android, Windows).</li>
         <li>Go to <em>Play → Servers → Add Server</em>.</li>
         <li>
           Enter the address and port:
@@ -156,7 +156,8 @@
   dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0 10px; }
   dl div { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
   dt { font-size: 12px; color: var(--muted); }
-  dd { margin: 2px 0 0; font: 600 18px/1.3 var(--mono); font-variant-numeric: tabular-nums; }
+  dd { margin: 2px 0 0; font: 600 18px/1.3 var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (max-width: 420px) { dl { gap: 8px; } dl div { padding: 9px 10px; } dd { font-size: 16px; } }
 
   ol { margin: 0; padding-left: 20px; }
   li { margin-bottom: 8px; }
