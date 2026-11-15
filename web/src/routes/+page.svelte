@@ -101,6 +101,15 @@
       <p class="muted small">Everyone is welcome as a visitor: walk and fly around the city. Building is reserved for the city's builders.</p>
     </section>
 
+    <section class="card wide map">
+      <div class="maphead">
+        <h2>Map</h2>
+        <a href="/map/index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+      </div>
+      <iframe src="/map/index.html" title="Top-down map of the city" loading="lazy"></iframe>
+      <p class="muted small">Drag to move, scroll or pinch to zoom. Redrawn every hour from the live world.</p>
+    </section>
+
     {#if admin}
       <section class="card wide">
         <h2>Online now</h2>
@@ -148,6 +157,12 @@
   .grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 16px; }
   .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; min-width: 0; }
   .wide { grid-column: 1 / -1; }
+  .map { padding-bottom: 14px; }
+  .maphead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .maphead a { font-size: 14px; text-decoration: none; }
+  .map iframe { display: block; width: 100%; height: clamp(320px, 60vh, 560px); border: 1px solid var(--line);
+                border-radius: 8px; background: #6f9144; }
+  .map p { margin: 10px 0 0; }
   h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 0 0 14px; font-weight: 600; }
 
   .state { display: flex; align-items: center; gap: 8px; font-size: 20px; }

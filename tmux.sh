@@ -31,6 +31,8 @@ WORKERS[status]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set
 # no "Add Server" there) add that account as a friend and join from the Friends tab. Re-login: the log prints a
 # microsoft.com/link code. Java = ~/.local/bin/java (Temurin 21 JRE).
 WORKERS[xbox]="bash -c 'cd $HOME/mcxb; while true; do date; java -jar MCXboxBroadcastStandalone.jar < /dev/null; echo xbox exited \$?, restarting in 30s; sleep 30; done'"
+# map: scripts/render-map.sh (uNmINeD) -> web/static/map/ = https://minecraft.webgma.co.il/map/, every MAP_EVERY s (1 h)
+WORKERS[map]="bash -c 'cd $DIR; while true; do date; PYBIN=$PYBIN bash scripts/render-map.sh || echo map render FAILED; sleep \${MAP_EVERY:-3600}; done'"
 # claude-ui registers its own workers (voice-relay) and notify_claude
 source "$DIR/claude-ui/tmux.sh"
 workers(){ for w in "${!WORKERS[@]}"; do echo "$w"; done | sort; }
