@@ -64,6 +64,10 @@ open(p, "w").write(s)
 print(f"{n} tiles, levels {bottom}..{top}")
 EOF
 
+# live player markers (admins only; web/static/live-players.js polls /rest/server_players)
+sed -i 's#</body>#    <script src="../live-players.js"></script>\n</body>#' "$TMP/render/index.html"
+grep -q 'live-players.js' "$TMP/render/index.html" || { echo "could not inject live-players.js"; exit 1; }
+
 # the viewer's page background beyond the rendered area: lawn too
 printf '\nhtml, body, #map, .ol-viewport { background: #6f9144 !important; }\n' >> "$TMP/render/index.css"
 

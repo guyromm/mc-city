@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Poll the mc-city control API (127.0.0.1:8767) and keep minecraft.server_status current for the web UI.
 
-Runs forever, one check every STATUS_EVERY seconds (default 30); exits non-zero on a DB error so the tmux loop
+Runs forever, one check every STATUS_EVERY seconds (default 5, for the live player map); exits non-zero on a DB error so the tmux loop
 restarts it. A dead BDS is not an error: it is written as online=false.
 
 Also keeps the operators: BDS keys permissions.json by xuid, known only once a player has connected, so every name in
@@ -12,7 +12,8 @@ import json, os, re, socket, sys, time
 from pathlib import Path
 import psycopg
 
-EVERY = int(os.environ.get("STATUS_EVERY", "30"))
+EVERY = int(os.environ.get("STATUS_EVERY", "5"))      # players for the live map; log reads only every SLOW s
+SLOW = 30
 HOME = Path.home()
 STATE = HOME / "agent/city/state.json"
 PROPS = HOME / "mc-bds/server/server.properties"
@@ -87,15 +88,17 @@ def check():
 
 def main():
     with psycopg.connect(os.environ.get("DBURI", "postgresql:///minecraft"), autocommit=True) as db:
+        last_slow, ver = 0.0, None
         while True:
             st = check()
-            sync_operators()
+            if time.time() - last_slow >= SLOW:      # these read up to 2 MB of server.log
+                sync_operators(); ver = version() or ver; last_slow = time.time()
             db.execute("""UPDATE minecraft.server_status SET online=%(online)s, players=%(players)s, tour=%(tour)s,
                             version=coalesce(%(version)s, version), max_players=%(max)s, plots_built=%(plots)s,
                             online_since=CASE WHEN NOT %(online)s THEN NULL WHEN online THEN online_since ELSE now() END,
                             checked_at=now()""",
                        dict(online=st["online"], players=json.dumps(st["players"]), tour=json.dumps(st["tour"]),
-                            version=version(), max=int(prop("max-players") or 0) or None, plots=plots()))
+                            version=ver, max=int(prop("max-players") or 0) or None, plots=plots()))
             time.sleep(EVERY)
 
 
