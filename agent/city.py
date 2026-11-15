@@ -423,6 +423,8 @@ def utility(m, r, x0, z0, x1, z1):
     return {"kind": "utility", "height": 32, "name": "Water Tower & Substation"}
 
 TYPES = {"office": office, "apartments": apartments, "houses": houses, "market": market, "park": park_plot, "utility": utility}
+from villa import villa                      # on request only (city.py one I J villa); choose() never picks it
+TYPES["villa"] = villa
 
 def choose(i, j, r, built):
     ring = max(abs(i - 0.5), abs(j - 1)) - 0.5      # distance in cells from downtown
