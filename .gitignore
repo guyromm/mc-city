@@ -1,0 +1,24 @@
+# project root = home dir (guy, #59): ignore everything, whitelist project files. Copied to ~/.gitignore at setup.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/README.md
+!/tmux.sh
+!/nginx.conf
+!/backup.sh
+!/pg_schema_dump.py
+!/postgrest.conf
+!/sql/
+!/src/
+!/web/
+!/tests/
+!/PLAN.md
+!/.gitmodules
+!/claude-ui
+node_modules/
+__pycache__/
+.venv/
+.env
+.env.*
+.svelte-kit/
+build/

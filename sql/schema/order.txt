@@ -1,0 +1,9 @@
+api.SCHEMA.sql
+pg_stat_statements.EXTENSION.sql
+EXTENSION.pg_stat_statements.COMMENT.sql
+pgcrypto.EXTENSION.sql
+EXTENSION.pgcrypto.COMMENT.sql
+pgjwt.EXTENSION.sql
+EXTENSION.pgjwt.COMMENT.sql
+SCHEMA.api.ACL.sql
+SCHEMA.public.ACL.sql
