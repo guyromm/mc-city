@@ -12,7 +12,7 @@ systemd/, claude/, README.md) sit at the root next to the host's (tmux.sh, nginx
 - `~/mc-bds/` (not in git): `server/` (bedrock_server, server.properties, worlds/claude_build, behavior_packs/agent_bp),
   `backups/` (city.py's every-10-buildings tgz), `server.log`, `events.log`; `bds.py mcs.py leveldat.py packs` are
   symlinks into ~/bds. `~/mc-agent` -> ~/agent. Made by `MC_BDS=~/mc-bds scripts/install.sh --no-services`.
-- `bds/server.properties` is the one that install.sh copies: allow-list=true, default-player-permission-level=member.
+- `bds/server.properties` is the one that install.sh copies: allow-list=true, default-player-permission-level=visitor (guy, 11-15: FiscalToaster87 is the only operator).
   Players: `mcs.py 'allowlist add NAME'`, `mcs.py 'op NAME'` (also edit ~/mc-bds/server/allowlist.json/permissions.json).
 - Workers (tmux.sh): `bds` (bds.py loop), `city` (city.py run), `api` (PostgREST), `ui` (vite dev), claude-ui's relay.
   Stopping `bds`: `source tmux.sh && stop bds` closes the window; bds.py turns the SIGHUP into a graceful `stop` (world saved).

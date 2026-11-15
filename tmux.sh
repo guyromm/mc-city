@@ -11,9 +11,24 @@ LOGDIR="$DIR/logs"; mkdir -p "$LOGDIR"
 export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 umask 022   # self-inspection rule (h); windows inherit the tmux SERVER's umask (0002 after the 11-12 14:24 restart), hence also in start()   # cron @reboot gives only /usr/bin:/bin; postgrest is in /usr/local/bin
 
-declare -A WORKERS
-# (no workers yet: add WORKERS[name]="..." lines here, e.g. the PostgREST api on $API_PORT)
-workers() { for w in "${!WORKERS[@]}"; do echo "$w"; done | sort; }
+PYBIN="${PYBIN:-$DIR/.venv/bin/python3}"   # venv (psycopg) for the relay + status worker; mc-city itself is stdlib-only
+BDS="${MC_BDS:-$HOME/mc-bds}"   # BDS install (not in git): server/, backups/, server.log; made by scripts/install.sh
+declare -A WORKERS WORKER_WINDOWS
+# api: PostgREST on 127.0.0.1:$API_PORT (nginx /rest/ and api.minecraft.webgma.co.il)
+WORKERS[api]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; postgrest postgrest.conf; echo api exited, restarting in 3s; sleep 3; done'"
+# ui: SvelteKit (vite dev, doc:vite-hardening) on 127.0.0.1:$UI_PORT (nginx /)
+WORKERS[ui]="bash -c 'cd $DIR/web; while true; do date; set -a; source ../.env; set +a; npx vite dev --port \$UI_PORT --strictPort; echo ui exited, restarting in 3s; sleep 3; done'"
+# bds: bds.py runs bedrock_server + the control port 127.0.0.1:8767. Refuses to run without the allow-list (the UDP port
+# is public), and waits for a previous instance to release the control port (no two servers on one world).
+# stop bds = graceful: bds.py turns the window's SIGHUP into a `stop` (world saved). Console log: ~/mc-bds/server.log.
+WORKERS[bds]="bash -c 'cd $BDS; while true; do date; if [ ! -x server/bedrock_server ]; then echo no BDS installed in $BDS/server; sleep 60; continue; fi; if ! grep -qx allow-list=true server/server.properties || grep -qx default-player-permission-level=operator server/server.properties; then echo REFUSING: server.properties needs allow-list=true and a non-operator default; sleep 60; continue; fi; while ss -Hltn src 127.0.0.1:8767 | grep -q .; do echo waiting for the old instance to release 8767; sleep 3; done; $PYBIN -u bds.py >/dev/null; echo bds exited \$?, restarting in 10s; sleep 10; done'"
+# city: the procedural city builder (MC_CITY_MAX_RING, default 6 = complete). Waits for the control API. Log: ~/mc-agent/city.log
+WORKERS[city]="bash -c 'cd $HOME/mc-agent; while true; do date; until $PYBIN $BDS/mcs.py list >/dev/null 2>&1; do sleep 20; done; sleep 20; $PYBIN -u city.py run >> city.log 2>&1; echo city exited \$?, restarting in 30s; sleep 30; done'"
+# status: polls the control API every 30 s into minecraft.server_status (api.server_status, the site's status card)
+WORKERS[status]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; $PYBIN -u src/status_worker.py; echo status exited \$?, restarting in 15s; sleep 15; done'"
+# claude-ui registers its own workers (voice-relay) and notify_claude
+source "$DIR/claude-ui/tmux.sh"
+workers(){ for w in "${!WORKERS[@]}"; do echo "$w"; done | sort; }
 
 start() {
     local w="$1"; [ -n "${WORKERS[$w]}" ] || { echo "no worker '$w'"; return 1; }

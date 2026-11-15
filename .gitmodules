@@ -1,0 +1,3 @@
+[submodule "claude-ui"]
+	path = claude-ui
+	url = https://github.com/guyromm/claude-ui

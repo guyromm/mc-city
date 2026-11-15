@@ -1,6 +1,8 @@
 #!/bin/bash
-# minecraft backups (#288, from auth's backup.sh). TODO(minecraft): add the BDS world dir once it runs. Daily from cron:
+# minecraft backups (#288, from auth's backup.sh). Daily from cron:
 #   1. pg_dump -Fc of DB minecraft (whole DB) -> ~/backups/minecraft-<UTC stamp>.dump (keep KEEP_DAYS locally)
+#   1b. the BDS world (consistent live copy, scripts/world-backup.sh) + server.properties/allowlist/permissions
+#      -> ~/backups/world-<UTC stamp>.tgz (keep KEEP_DAYS); skipped with a warning while no BDS is installed
 #   2. offsite: rsync to minecraft's OWN Storage Box sub-account (port 23, key ~/.ssh/id_ed25519) when
 #      BACKUP_SB_USER / BACKUP_SB_HOST are in .env; skipped with a warning until guy creates it
 #   3. restore test: pg_restore into $RESTORE_DB (default minecraft_test, the scratch DB, emptied first)
@@ -24,6 +26,15 @@ if pg_dump -Fc --no-owner "$DBURI" -f "$f.part" && mv "$f.part" "$f"; then
   notes+=("dump $(basename "$f") $(du -h "$f" | cut -f1)")
 else rm -f "$f.part"; fail "pg_dump"; fi
 find "$BK" -name 'minecraft-*.dump*' -mtime +"$KEEP_DAYS" -delete
+
+# 1b. world
+if [ -d "${MC_BDS:-$HOME/mc-bds}/server/worlds/claude_build" ]; then
+  w="$BK/world-$stamp.tgz"
+  if r=$(bash "$DIR/scripts/world-backup.sh" "$w" 2>&1 | tail -1) && [ -s "$w" ]; then
+    chmod 600 "$w"; sha256sum "$w" | awk '{print $1}' > "$w.sha256"; notes+=("world $(basename "$w") ($r)")
+  else fail "world backup: $r"; fi
+else notes+=("world SKIPPED (no BDS world yet)"); status=${status/ok/warn}; fi
+find "$BK" -name 'world-*.tgz*' -mtime +"$KEEP_DAYS" -delete
 
 # 2. offsite
 if [[ " $* " != *" --no-offsite "* ]]; then
