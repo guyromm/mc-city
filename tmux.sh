@@ -26,6 +26,11 @@ WORKERS[bds]="bash -c 'cd $BDS; while true; do date; if [ ! -x server/bedrock_se
 WORKERS[city]="bash -c 'cd $HOME/mc-agent; while true; do date; until $PYBIN $BDS/mcs.py list >/dev/null 2>&1; do sleep 20; done; sleep 20; $PYBIN -u city.py run >> city.log 2>&1; echo city exited \$?, restarting in 30s; sleep 30; done'"
 # status: polls the control API every 30 s into minecraft.server_status (api.server_status, the site's status card)
 WORKERS[status]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; $PYBIN -u src/status_worker.py; echo status exited \$?, restarting in 15s; sleep 15; done'"
+# xbox: MCXboxBroadcast standalone (~/mcxb, not in git: jar build 164 + config.yml + cache/ = the Xbox login token).
+# Shows the server as a joinable friend session of the Xbox account mc@guyromm.com, so console players (PS/Xbox/Switch,
+# no "Add Server" there) add that account as a friend and join from the Friends tab. Re-login: the log prints a
+# microsoft.com/link code. Java = ~/.local/bin/java (Temurin 21 JRE).
+WORKERS[xbox]="bash -c 'cd $HOME/mcxb; while true; do date; java -jar MCXboxBroadcastStandalone.jar < /dev/null; echo xbox exited \$?, restarting in 30s; sleep 30; done'"
 # claude-ui registers its own workers (voice-relay) and notify_claude
 source "$DIR/claude-ui/tmux.sh"
 workers(){ for w in "${!WORKERS[@]}"; do echo "$w"; done | sort; }

@@ -15,7 +15,12 @@ systemd/, claude/, README.md) sit at the root next to the host's (tmux.sh, nginx
 - `bds/server.properties` is the one that install.sh copies: allow-list=false, default-player-permission-level=visitor (guy, 11-15: FiscalToaster87 the only operator, visitors
   welcome). The bds worker refuses an operator default, and anything but visitor while the allow-list is off.
   Players: `mcs.py 'allowlist add NAME'`, `mcs.py 'op NAME'` (also edit ~/mc-bds/server/allowlist.json/permissions.json).
-- Workers (tmux.sh): `bds` (bds.py loop), `city` (city.py run), `api` (PostgREST), `ui` (vite dev), claude-ui's relay.
+- Workers (tmux.sh): `bds` (bds.py loop), `city` (city.py run), `status`, `api` (PostgREST), `ui` (vite dev), `xbox`,
+  claude-ui's relay.
+- Consoles (no "Add Server"): worker `xbox` = MCXboxBroadcast standalone build 164 in ~/mcxb (not in git; Java =
+  ~/.local/bin/java, Temurin 21 JRE). Xbox account mc@guyromm.com, gamertag **AiryCargo2793** (guy's, created 11-15), shows the
+  server as a joinable friend session; auto-accepts friends, unfriends after 15 idle days. Login token = ~/mcxb/cache/
+  cache.json; if it expires the log prints a microsoft.com/link code: give it to guy (he signs in, never me).
   Stopping `bds`: `source tmux.sh && stop bds` closes the window; bds.py turns the SIGHUP into a graceful `stop` (world saved).
 
 ## Before changing anything in the game

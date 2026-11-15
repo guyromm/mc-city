@@ -93,6 +93,11 @@
           </div>
         </li>
       </ol>
+      <p class="console">
+        <strong>PlayStation, Xbox or Switch?</strong> Consoles have no "Add Server". In Minecraft, open
+        <em>Play → Friends → Add Friend</em>, add <button class="chip inline" onclick={() => copy('AiryCargo2793', 'tag')} title="Copy">AiryCargo2793<span>{copied === 'tag' ? 'copied' : 'copy'}</span></button>,
+        then join <em>Claude Builds</em> from the Friends tab. Online play on consoles needs the console's own subscription (PS Plus, Game Pass, Switch Online).
+      </p>
       <p class="muted small">Everyone is welcome as a visitor: walk and fly around the city. Building is reserved for the city's builders.</p>
     </section>
 
@@ -160,6 +165,8 @@
           border-radius: 8px; padding: 7px 10px; color: var(--text); font: 600 15px var(--mono); cursor: pointer; max-width: 100%; overflow-wrap: anywhere; }
   .chip span { font: 500 11px system-ui, sans-serif; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
   .chip:hover { border-color: var(--grass-2); }
+  .chip.inline { padding: 2px 8px; font-size: 14px; vertical-align: baseline; }
+  .console { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; }
 
   table { width: 100%; border-collapse: collapse; font-size: 15px; }
   th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
