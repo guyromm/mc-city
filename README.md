@@ -17,7 +17,7 @@ bds/                    server side
   bds.py                runs bedrock_server; control port 127.0.0.1:8767 (raw console lines or JSON ops)
   mcs.py                CLI client:  mcs.py 'say hi'   |   mcs.py '{"op":"ping"}'
   leveldat.py           level.dat patcher (used once to enable Beta APIs/experiments on the world)
-  server.properties     creative, peaceful, cheats, allow-list on, default permission = visitor, view-distance 16
+  server.properties     creative, peaceful, cheats, allow-list off, default permission = visitor, view-distance 16
   packs/agent_bp/       behavior pack (Script API @minecraft/server 2.12.0-beta)
 agent/                  builders (Python 3, stdlib only; wsbridge.py needs `websockets`)
   tower.py              Atrium Tower + shared lib: Model, boxes(), Conn, send_fill, verify, ASC stair map
@@ -74,10 +74,10 @@ means the LAN IP, a Tailscale IP, or a port-forward. On Linux the client used he
 `io.mrarm.mcpelauncher`. If typing in chat does not work there, disable IBus for it:
 `flatpak override --user --env=XMODIFIERS=@im=none --env=GTK_IM_MODULE=simple io.mrarm.mcpelauncher`.
 
-> **Security:** `allow-list=true` and `default-player-permission-level=visitor`: only players in `allowlist.json` can
-> join, and they can look but not build. Add players with `mcs.py 'allowlist add NAME'` and make yourself operator with
-> `mcs.py 'op NAME'`. (Earlier snapshots shipped `allow-list=false` + `operator`: anyone reaching the port became an
-> operator.)
+> **Security:** `default-player-permission-level=visitor`: anyone may join, but only to look around (no building, no
+> commands). Operators are named on purpose: `mcs.py 'op NAME'` (or, on the gma8 host, `MC_OPERATORS` in `.env`). To
+> close the server to strangers, set `allow-list=true` and add players with `mcs.py 'allowlist add NAME'`. Never combine
+> a public port with `operator` as the default (earlier snapshots did: anyone reaching the port became an operator).
 
 ## Tour mode
 

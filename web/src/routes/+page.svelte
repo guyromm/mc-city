@@ -93,7 +93,7 @@
           </div>
         </li>
       </ol>
-      <p class="muted small">The server only lets in players on its allow-list. Ask the owner to add your Xbox gamertag.</p>
+      <p class="muted small">Everyone is welcome as a visitor: walk and fly around the city. Building is reserved for the city's builders.</p>
     </section>
 
     {#if admin}
