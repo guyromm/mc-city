@@ -17,7 +17,8 @@ declare -A WORKERS WORKER_WINDOWS
 # api: PostgREST on 127.0.0.1:$API_PORT (nginx /rest/ and api.minecraft.webgma.co.il)
 WORKERS[api]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; postgrest postgrest.conf; echo api exited, restarting in 3s; sleep 3; done'"
 # ui: SvelteKit (vite dev, doc:vite-hardening) on 127.0.0.1:$UI_PORT (nginx /)
-WORKERS[ui]="bash -c 'cd $DIR/web; while true; do date; set -a; source ../.env; set +a; npx vite dev --port \$UI_PORT --strictPort; echo ui exited, restarting in 3s; sleep 3; done'"
+# ui: vite gets an EMPTY env plus the two ports only (doc:vite-hardening R7; #2920: a vite on gma6 leaked its env). Never source .env here.
+WORKERS[ui]="bash -c 'cd $DIR/web; while true; do date; UI=\$(grep -E ^UI_PORT= ../.env | cut -d= -f2); AP=\$(grep -E ^API_PORT= ../.env | cut -d= -f2); env -i HOME=\$HOME PATH=\$PATH LANG=C.UTF-8 UI_PORT=\$UI API_PORT=\$AP npx vite dev --port \$UI --strictPort; echo ui exited, restarting in 3s; sleep 3; done'"
 # bds: bds.py runs bedrock_server + the control port 127.0.0.1:8767. The port is public, so it refuses an operator default,
 # and with allow-list=false (guy 11-15: strangers welcome as visitors) anything but default visitor. It waits for a previous instance to release the control port (no two servers on one world).
 # stop bds = graceful: bds.py turns the window's SIGHUP into a `stop` (world saved). Console log: ~/mc-bds/server.log.
