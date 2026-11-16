@@ -34,3 +34,4 @@ __pycache__/
 .svelte-kit/
 build/
 /web/static/map*/
+/web/map*/

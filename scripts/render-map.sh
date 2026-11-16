@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Render the world into a static web map (uNmINeD CLI, OpenLayers viewer) at web/static/map/ -> https://<site>/map/
+# Render the world into a static web map (uNmINeD CLI, OpenLayers viewer) at web/map/ (served by web/src/hooks.server.js) -> https://<site>/map/
 #   scripts/render-map.sh            (the `map` worker runs it every MAP_EVERY seconds; ~10 s for the whole city)
 # Reads a consistent COPY of the live world (scripts/world-backup.sh), never the live files.
 # Post-process: BDS keeps no terrain for chunks that are still untouched generated superflat (it regenerates them),
@@ -10,7 +10,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 UNMINED="${UNMINED:-$HOME/.local/lib/unmined/unmined-cli}"
 PY="${PYBIN:-$REPO/.venv/bin/python3}"      # needs Pillow
-OUT="$REPO/web/static/map"
+OUT="$REPO/web/map"
 TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 
 bash "$REPO/scripts/world-backup.sh" "$TMP/world.tgz" >/dev/null
@@ -65,7 +65,7 @@ print(f"{n} tiles, levels {bottom}..{top}")
 EOF
 
 # live player markers (admins only; web/static/live-players.js polls /rest/server_players)
-sed -i 's#</body>#    <script src="../live-players.js"></script>\n</body>#' "$TMP/render/index.html"
+sed -i 's#</body>#    <script src="/live-players.js"></script>\n</body>#' "$TMP/render/index.html"
 grep -q 'live-players.js' "$TMP/render/index.html" || { echo "could not inject live-players.js"; exit 1; }
 
 # the viewer's page background beyond the rendered area: lawn too

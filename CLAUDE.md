@@ -15,7 +15,7 @@ systemd/, claude/, README.md) sit at the root next to the host's (tmux.sh, nginx
 - `bds/server.properties` is the one that install.sh copies: allow-list=false, default-player-permission-level=visitor (guy, 11-15: FiscalToaster87 the only operator, visitors
   welcome). The bds worker refuses an operator default, and anything but visitor while the allow-list is off.
   Players: `mcs.py 'allowlist add NAME'`, `mcs.py 'op NAME'` (also edit ~/mc-bds/server/allowlist.json/permissions.json).
-- Workers (tmux.sh): `bds` (bds.py loop), `city` (city.py run), `status`, `api` (PostgREST), `ui` (vite dev), `xbox`,
+- Workers (tmux.sh): `bds` (bds.py loop), `city` (city.py run), `status`, `api` (PostgREST), `ui` (production build: vite build + node build, rebuilt at each restart; no vite dev server, board #2945), `xbox`,
   claude-ui's relay.
 - Consoles (no "Add Server"): worker `xbox` = MCXboxBroadcast standalone build 164 in ~/mcxb (not in git; Java =
   ~/.local/bin/java, Temurin 21 JRE). Xbox account mc@guyromm.com, gamertag **AiryCargo2793** (guy's, created 11-15), shows the
@@ -50,7 +50,7 @@ and swaps in at the end of the current loop, so it never interrupts the flight);
   into sites-enabled; ask resource-manager for nginx -t + reload after edits):
   https://minecraft.webgma.co.il (and www.) / -> :3794 (/claude is a route of your app), /rest/ -> :3795;
   https://api.minecraft.webgma.co.il -> :3795. A placeholder shows until something listens. TLS: webroot, auto-renew.
-  Vite dev servers: doc:vite-hardening (the @fs filter already allows only ~/{web,src,node_modules,.svelte-kit,claude-ui/web}).
+  No public vite DEV server ever (board #2920/#2945, RCE): the ui worker serves a production build from an empty env. After editing web/: `stop ui; start ui`. The map (web/map/, hourly) is served by web/src/hooks.server.js.
 - The game: BDS on UDP 19132 (IPv6 19133), joined at minecraft.webgma.co.il:19132. gma8's firewall is default-deny.
   resource-manager opens 19132/19133 ONLY after you confirm the allow-list is ON. Downloading BDS means accepting Mojang's
   EULA: that acceptance is guy's.
