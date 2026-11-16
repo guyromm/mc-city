@@ -11503,8 +11503,1828 @@
     "2,-9",
     "2,-8"
    ]
+  },
+  "-3,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [
+    [
+     280,
+     59,
+     -850,
+     20,
+     -1,
+     -1200,
+     100
+    ],
+    [
+     20,
+     -29,
+     -858,
+     20,
+     -21,
+     -905,
+     80
+    ],
+    [
+     20,
+     -46,
+     -930,
+     20,
+     -46,
+     -1000,
+     70
+    ],
+    [
+     20,
+     -45,
+     -1000,
+     20,
+     -36,
+     -1195,
+     60
+    ],
+    [
+     48,
+     -39,
+     -1110,
+     60,
+     -41,
+     -1062,
+     60
+    ],
+    [
+     90,
+     -41,
+     -1180,
+     140,
+     -55,
+     -1195,
+     70
+    ],
+    [
+     50,
+     -35,
+     -1240,
+     20,
+     -31,
+     -1195,
+     70
+    ],
+    [
+     23,
+     -9,
+     -1195,
+     20,
+     59,
+     -1360,
+     60
+    ],
+    [
+     23,
+     34,
+     -1195,
+     20,
+     99,
+     -1360,
+     60
+    ],
+    [
+     140,
+     114,
+     -1290,
+     20,
+     124,
+     -1360,
+     100
+    ]
+   ],
+   "cells": [
+    "-3,-22",
+    "-3,-21",
+    "-3,-20",
+    "-3,-19",
+    "-3,-18",
+    "-3,-17",
+    "-3,-16",
+    "-3,-15",
+    "-3,-14",
+    "-2,-22",
+    "-2,-21",
+    "-2,-20",
+    "-2,-19",
+    "-2,-18",
+    "-2,-17",
+    "-2,-16",
+    "-2,-15",
+    "-2,-14",
+    "-1,-22",
+    "-1,-21",
+    "-1,-20",
+    "-1,-19",
+    "-1,-18",
+    "-1,-17",
+    "-1,-16",
+    "-1,-15",
+    "-1,-14",
+    "0,-22",
+    "0,-21",
+    "0,-20",
+    "0,-19",
+    "0,-18",
+    "0,-17",
+    "0,-16",
+    "0,-15",
+    "0,-14",
+    "1,-22",
+    "1,-21",
+    "1,-20",
+    "1,-19",
+    "1,-18",
+    "1,-17",
+    "1,-16",
+    "1,-15",
+    "1,-14",
+    "2,-22",
+    "2,-21",
+    "2,-20",
+    "2,-19",
+    "2,-18",
+    "2,-17",
+    "2,-16",
+    "2,-15",
+    "2,-14",
+    "3,-22",
+    "3,-21",
+    "3,-20",
+    "3,-19",
+    "3,-18",
+    "3,-17",
+    "3,-16",
+    "3,-15",
+    "3,-14",
+    "4,-22",
+    "4,-21",
+    "4,-20",
+    "4,-19",
+    "4,-18",
+    "4,-17",
+    "4,-16",
+    "4,-15",
+    "4,-14"
+   ],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-3,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-2,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "-1,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "0,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "1,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "2,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "3,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-22": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-21": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-20": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-19": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-18": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-17": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-16": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-15": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
+  },
+  "4,-14": {
+   "kind": "citadel",
+   "name": "Ancient Alien Citadel",
+   "center": [
+    20,
+    -1195
+   ],
+   "height": 198,
+   "bbox": [
+    -222,
+    -1500,
+    262,
+    -869
+   ],
+   "order": 209,
+   "blocks": 1005127,
+   "errors": 0,
+   "mismatches": 0,
+   "tour": [],
+   "cells": [],
+   "chests": 12,
+   "sentinels": 13
   }
  },
- "order": 208,
+ "order": 209,
  "links": true
 }
