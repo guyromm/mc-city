@@ -23,4 +23,13 @@
   <label>Password<input type="password" autocomplete="current-password" bind:value={password} required /></label>
   {#if err}<p class="err">{err}</p>{/if}
   <button disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button>
+  <!-- full page load (data-sveltekit-reload): /auth/login is a server route that bounces through auth.webgma.co.il -->
+  <a class="sso" href={'/auth/login?next=' + encodeURIComponent(safeNext(page.url.searchParams.get('next')))} data-sveltekit-reload>
+    Sign in with auth.webgma.co.il</a>
 </AuthForm>
+
+<style>
+  .sso { display: block; text-align: center; margin-top: 14px; padding: 11px; border: 1px solid var(--line); border-radius: 8px;
+         color: var(--text); text-decoration: none; font-weight: 600; }
+  .sso:hover { border-color: var(--grass-2); }
+</style>

@@ -69,6 +69,16 @@ sql/schema/ (written by pg_schema_dump.py) is the SOURCE OF TRUTH. Change the DB
 sql/migrations/<date>-<what>.sql and psql -f it), run `python3 pg_schema_dump.py`, review `git diff sql/schema`, commit both.
 Never leave a live change undumped. `sql/apply.sh --fresh` (rebuilds minecraft_test from sql/) before committing a big change.
 
+## Sign in with auth.webgma.co.il (#275/13, doc:auth-integration)
+- Second way in next to the own email login (kept): /login -> "Sign in with auth.webgma.co.il" -> /auth/login -> auth -> /auth/callback.
+  Client: web/src/lib/server/auth.js (auth's public kit, refetch from https://auth.webgma.co.il/client/sveltekit/auth.js).
+  Cookies are httpOnly; /auth/token hands the 15-min RS256 token to the page (awaited in +layout.js, refetched every 5 min).
+- .env: AUTH_SYSTEM=minecraft, AUTH_CLIENT_SECRET (auth holds only its sha256), AUTH_CALLBACK, AUTH_LIVE_CHECK=1. The ui
+  worker reads AUTH_* from ~/.env at runtime (AUTH_ENV_FILE), never from its environment.
+- PostgREST: jwt-secret = @~/.pgrst-jwks.json (own HS256 + auth's RS256; rebuilt at each api start by scripts/pgrst-jwks.py),
+  jwt-aud = "minecraft" (own tokens carry no aud). Admin = minecraft.is_admin(): own token, OR iss=auth + aud=minecraft +
+  role=minecraft_web + sub = an enabled admins.auth_sub (guy's row only).
+
 ## Board
 - Handle `minecraft`. Board tasks: #288 (the project, PM board), #288/2 yours (bring-up), #119/25 (code review).
 - Questions for guy: `board task update <my task> --human "..."` (Goal / options / **Recommendation** / where to answer,

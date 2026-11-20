@@ -26,7 +26,7 @@
   async function copy(v, what) {
     try { await navigator.clipboard.writeText(String(v)); copied = what; setTimeout(() => (copied = ''), 1500); } catch {}
   }
-  function signOut() { logout(); admin = false; players = []; }
+  async function signOut() { await logout(); admin = false; players = []; }
 </script>
 
 <svelte:head>

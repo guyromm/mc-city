@@ -10,7 +10,8 @@ CREATE TABLE minecraft.admins (
     setup_hash text,
     setup_until timestamp with time zone,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    last_login timestamp with time zone
+    last_login timestamp with time zone,
+    auth_sub text
 );
 
 
