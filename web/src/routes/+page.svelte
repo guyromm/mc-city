@@ -42,7 +42,7 @@
         <a href="/claude">Chat with the agent</a>
         <button class="link" onclick={signOut}>Sign out</button>
       {:else}
-        <a href="/login">Sign in</a>
+        <a href="/auth/login" data-sveltekit-reload>Sign in</a>
       {/if}
     </nav>
   </div>
@@ -126,7 +126,7 @@
           </table>
         {/if}
         <p class="muted small">
-          Signed in as {session()?.name ?? session()?.email}. Building, tours, players and restarts:
+          Signed in as {session()?.name}. Building, tours, players and restarts:
           ask in the <a href="/claude">agent chat</a>.
         </p>
       </section>

@@ -14,9 +14,9 @@ umask 022   # self-inspection rule (h); windows inherit the tmux SERVER's umask 
 PYBIN="${PYBIN:-$DIR/.venv/bin/python3}"   # venv (psycopg) for the relay + status worker; mc-city itself is stdlib-only
 BDS="${MC_BDS:-$HOME/mc-bds}"   # BDS install (not in git): server/, backups/, server.log; made by scripts/install.sh
 declare -A WORKERS WORKER_WINDOWS
-# api: PostgREST on 127.0.0.1:$API_PORT (nginx /rest/ and api.minecraft.webgma.co.il). jwt-secret = a JWK set (own HS256 +
-# auth.webgma.co.il's RS256, #275/13), rebuilt from .env + auth's JWKS at each start by scripts/pgrst-jwks.py (file 600).
-WORKERS[api]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; $PYBIN scripts/pgrst-jwks.py && export PGRST_JWT_SECRET=@\$HOME/.pgrst-jwks.json; postgrest postgrest.conf; echo api exited, restarting in 3s; sleep 3; done'"
+# api: PostgREST on 127.0.0.1:$API_PORT (nginx /rest/ and api.minecraft.webgma.co.il). jwt-secret = auth.webgma.co.il's
+# public RS256 keys (the only issuer, #275/13), refetched at each start by scripts/pgrst-jwks.py into ~/.pgrst-jwks.json.
+WORKERS[api]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set +a; $PYBIN scripts/pgrst-jwks.py; export PGRST_JWT_SECRET=@\$HOME/.pgrst-jwks.json; postgrest postgrest.conf; echo api exited, restarting in 3s; sleep 3; done'"
 # ui: PRODUCTION build (adapter-node), never a public vite dev server (board #2920/#2945: every vite dev server is
 # exploitable). Rebuilt at each (re)start: after editing web/, `stop ui; start ui`. Empty env plus the port only
 # (doc:vite-hardening R7); never source .env here (the auth client reads only AUTH_* from it, AUTH_ENV_FILE). /map/ is served from web/map by web/src/hooks.server.js.

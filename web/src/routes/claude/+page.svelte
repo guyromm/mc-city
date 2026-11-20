@@ -6,4 +6,4 @@
 </script>
 
 <svelte:head><title>Claude — Claude Builds</title></svelte:head>
-<ClaudePage pgrst={PGRST} {getToken} {isAdmin} loginUrl="/login?next=" />
+<ClaudePage pgrst={PGRST} {getToken} {isAdmin} loginUrl="/auth/login?next=" />

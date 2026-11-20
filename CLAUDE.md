@@ -57,7 +57,7 @@ and swaps in at the end of the current loop, so it never interrupts the flight);
 - Postgres 17 on gma8: DB `minecraft` owned by role `minecraft` (peer auth, DBURI=postgresql:///minecraft). Roles minecraft_anon
   and minecraft_web (NOLOGIN; you hold ADMIN), minecraft_authenticator (LOGIN NOINHERIT, password in .env) for PostgREST.
   Schema `api` (yours); pgcrypto + pgjwt installed. Scratch DB `minecraft_test` (yours).
-- Secrets live only in ~/.env (600): DB_AUTHENTICATOR_PASSWORD, PGRST_DB_URI, PGRST_JWT_SECRET. Never print them, never put
+- Secrets live only in ~/.env (600): DB_AUTHENTICATOR_PASSWORD, PGRST_DB_URI, AUTH_CLIENT_SECRET (PGRST_JWT_SECRET removed 11-21). Never print them, never put
   them on a command line (argv is readable by every user on gma8), never share them with another project.
 - Backups: ~/backup.sh daily 03:41 (cron): pg_dump -> ~/backups, restore test into minecraft_test, status in ~/.backup-status.
   Add the BDS world (worlds/claude_build) to it once BDS runs. Offsite is pending: minecraft's own Storage Box sub-account
@@ -69,15 +69,17 @@ sql/schema/ (written by pg_schema_dump.py) is the SOURCE OF TRUTH. Change the DB
 sql/migrations/<date>-<what>.sql and psql -f it), run `python3 pg_schema_dump.py`, review `git diff sql/schema`, commit both.
 Never leave a live change undumped. `sql/apply.sh --fresh` (rebuilds minecraft_test from sql/) before committing a big change.
 
-## Sign in with auth.webgma.co.il (#275/13, doc:auth-integration)
-- Second way in next to the own email login (kept): /login -> "Sign in with auth.webgma.co.il" -> /auth/login -> auth -> /auth/callback.
-  Client: web/src/lib/server/auth.js (auth's public kit, refetch from https://auth.webgma.co.il/client/sveltekit/auth.js).
-  Cookies are httpOnly; /auth/token hands the 15-min RS256 token to the page (awaited in +layout.js, refetched every 5 min).
-- .env: AUTH_SYSTEM=minecraft, AUTH_CLIENT_SECRET (auth holds only its sha256), AUTH_CALLBACK, AUTH_LIVE_CHECK=1. The ui
-  worker reads AUTH_* from ~/.env at runtime (AUTH_ENV_FILE), never from its environment.
-- PostgREST: jwt-secret = @~/.pgrst-jwks.json (own HS256 + auth's RS256; rebuilt at each api start by scripts/pgrst-jwks.py),
-  jwt-aud = "minecraft" (own tokens carry no aud). Admin = minecraft.is_admin(): own token, OR iss=auth + aud=minecraft +
-  role=minecraft_web + sub = an enabled admins.auth_sub (guy's row only).
+## Sign in with auth.webgma.co.il: the ONLY admin login (#275/13, doc:auth-integration; guy 11-20 #3346/#3348)
+- No local login (removed 11-21: api.login/set_password, admins, secrets, the HS256 JWT secret). /login and "Sign in" go
+  to /auth/login -> auth -> /auth/callback. Client: web/src/lib/server/auth.js (auth's public kit, refetch from
+  https://auth.webgma.co.il/client/sveltekit/auth.js). httpOnly cookies; /auth/token hands the 15-min RS256 token to the
+  page (awaited in +layout.js, refetched every 5 min).
+- Admin = minecraft.is_admin(): iss=https://auth.webgma.co.il + aud=minecraft + role=minecraft_web. No sub list: WHO is
+  admin is auth's grants table (guy grants at https://auth.webgma.co.il). New admin = ask guy/auth for a grant, no code.
+- .env: AUTH_SYSTEM=minecraft, AUTH_CLIENT_SECRET (auth holds only its sha256), AUTH_CALLBACK, AUTH_LIVE_CHECK=1; the ui
+  worker reads AUTH_* from ~/.env at runtime (AUTH_ENV_FILE). PostgREST: jwt-secret = @~/.pgrst-jwks.json (auth's public
+  keys, refetched at each api start by scripts/pgrst-jwks.py), jwt-aud = "minecraft".
+- Testing as admin without a person: impossible by design; use psql with `set local request.jwt.claims` in a rolled-back txn.
 
 ## Board
 - Handle `minecraft`. Board tasks: #288 (the project, PM board), #288/2 yours (bring-up), #119/25 (code review).
