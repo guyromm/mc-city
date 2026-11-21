@@ -74,7 +74,7 @@ Never leave a live change undumped. `sql/apply.sh --fresh` (rebuilds minecraft_t
   to /auth/login -> auth -> /auth/callback. Client: web/src/lib/server/auth.js (auth's public kit, refetch from
   https://auth.webgma.co.il/client/sveltekit/auth.js). httpOnly cookies; /auth/token hands the 15-min RS256 token to the
   page (awaited in +layout.js, refetched every 5 min).
-- Admin = minecraft.is_admin(): iss=https://auth.webgma.co.il + aud=minecraft + role=minecraft_web. No sub list: WHO is
+- Admin = minecraft.is_admin(): iss=https://auth.webgma.co.il + aud=minecraft + role=minecraft_admin (DB role, inherits minecraft_web; a minecraft_web token is NOT admin, auth #3359). No sub list: WHO is
   admin is auth's grants table (guy grants at https://auth.webgma.co.il). New admin = ask guy/auth for a grant, no code.
 - .env: AUTH_SYSTEM=minecraft, AUTH_CLIENT_SECRET (auth holds only its sha256), AUTH_CALLBACK, AUTH_LIVE_CHECK=1; the ui
   worker reads AUTH_* from ~/.env at runtime (AUTH_ENV_FILE). PostgREST: jwt-secret = @~/.pgrst-jwks.json (auth's public

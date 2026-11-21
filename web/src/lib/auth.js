@@ -2,7 +2,7 @@
 // hint; the server-side gate is minecraft.is_admin() (iss + aud + granted role) in every api object.
 // The 15-min RS256 token (aud=minecraft) lives in httpOnly cookies; /auth/token hands it to the page. loadAuthToken() is
 // awaited in +layout.js before any page renders and refetched every 5 min (the server refreshes it through auth).
-const AUTH_ROLE = 'minecraft_web';
+const AUTH_ROLE = 'minecraft_admin';
 
 function claims(tok) {
   try {
