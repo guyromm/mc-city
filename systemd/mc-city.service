@@ -1,0 +1,17 @@
+[Unit]
+Description=Procedural city builder for Claude Builds
+After=mc-bds.service
+Requires=mc-bds.service
+
+[Service]
+WorkingDirectory=%h/mc-agent
+# Environment=MC_CITY_MAX_RING=8
+ExecStartPre=/bin/sleep 20
+ExecStart=/usr/bin/python3 -u %h/mc-agent/city.py run
+Restart=always
+RestartSec=30
+StandardOutput=append:%h/mc-agent/city.log
+StandardError=append:%h/mc-agent/city.log
+
+[Install]
+WantedBy=default.target

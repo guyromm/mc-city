@@ -1,4 +1,5 @@
 # project root = home dir (guy, #59): ignore everything, whitelist project files. Copied to ~/.gitignore at setup.
+# The repo is also github.com/guyromm/mc-city (public!): never whitelist anything secret.
 /*
 !/.gitignore
 !/CLAUDE.md
@@ -15,10 +16,22 @@
 !/PLAN.md
 !/.gitmodules
 !/claude-ui
+# mc-city (github.com/guyromm/mc-city)
+!/agent/
+!/bds/
+!/scripts/
+!/world/
+!/systemd/
+!/claude/
 node_modules/
 __pycache__/
+*.pyc
+/agent/*.log
+*.replaced-*
 .venv/
 .env
 .env.*
 .svelte-kit/
 build/
+/web/static/map*/
+/web/map*/

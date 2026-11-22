@@ -6,6 +6,3 @@ GRANT USAGE ON SCHEMA public TO tweet_reader;
 
 
 --
--- PostgreSQL database dump complete
---
-
