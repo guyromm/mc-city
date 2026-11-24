@@ -1,8 +1,8 @@
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: -
 --
 
-GRANT CREATE ON SCHEMA public TO telegram;
-GRANT USAGE ON SCHEMA public TO tweet_reader;
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+GRANT USAGE ON SCHEMA public TO minecraft;
 
 
 --
