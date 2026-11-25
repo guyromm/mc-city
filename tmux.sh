@@ -33,7 +33,8 @@ WORKERS[status]="bash -c 'cd $DIR; while true; do date; set -a; source .env; set
 # Shows the server as a joinable friend session of the Xbox account mc@guyromm.com, so console players (PS/Xbox/Switch,
 # no "Add Server" there) add that account as a friend and join from the Friends tab. Re-login: the log prints a
 # microsoft.com/link code. Java = ~/.local/bin/java (Temurin 21 JRE).
-WORKERS[xbox]="bash -c 'cd $HOME/mcxb; while true; do date; java -jar MCXboxBroadcastStandalone.jar < /dev/null; echo xbox exited \$?, restarting in 30s; sleep 30; done'"
+# -Xmx256m (self-inspection 11-25): without it the JVM may grow to 1/4 of RAM (16 GB); RSS rose 120->163 MB in 2 days.
+WORKERS[xbox]="bash -c 'cd $HOME/mcxb; while true; do date; java -Xmx256m -jar MCXboxBroadcastStandalone.jar < /dev/null; echo xbox exited \$?, restarting in 30s; sleep 30; done'"
 # map: scripts/render-map.sh (uNmINeD) -> web/static/map/ = https://minecraft.webgma.co.il/map/, every MAP_EVERY s (1 h)
 WORKERS[map]="bash -c 'cd $DIR; while true; do date; PYBIN=$PYBIN bash scripts/render-map.sh || echo map render FAILED; sleep \${MAP_EVERY:-3600}; done'"
 # claude-ui registers its own workers (voice-relay) and notify_claude

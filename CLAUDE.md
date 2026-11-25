@@ -60,8 +60,8 @@ and swaps in at the end of the current loop, so it never interrupts the flight);
 - Secrets live only in ~/.env (600): DB_AUTHENTICATOR_PASSWORD, PGRST_DB_URI, AUTH_CLIENT_SECRET (PGRST_JWT_SECRET removed 11-21). Never print them, never put
   them on a command line (argv is readable by every user on gma8), never share them with another project.
 - Backups: ~/backup.sh daily 03:41 (cron): pg_dump -> ~/backups, restore test into minecraft_test, status in ~/.backup-status.
-  Add the BDS world (worlds/claude_build) to it once BDS runs. Offsite is pending: minecraft's own Storage Box sub-account
-  (guy, Hetzner Robot; #65 item 3).
+  Also the world tgz and the age-encrypted secrets bundle (#276/1). Offsite since 11-23: rsync of ~/backups/ to minecraft's own
+  Storage Box sub-account (BACKUP_SB_* in .env, port 23, key ~/.ssh/id_ed25519), dir minecraft/.
 - Git: ~/.ssh/id_ed25519 is minecraft's one key (GitHub deploy key with write on guyromm/mc-city).
 
 ## DB schema workflow (house convention, doc:project-skeleton)
