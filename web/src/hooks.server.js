@@ -12,7 +12,7 @@ export async function handle({ event, resolve }) {
   const p = event.url.pathname;
   // auth.webgma.co.il SSO (#275/13): only /auth/* reads the cookies (the app is client-rendered; /auth/token hands the
   // token to the page), so map tiles and assets never trigger a refresh or live check
-  if (p.startsWith('/auth/')) { await authenticate(event); return resolve(event); }
+  if (p.startsWith('/auth/')) { await authenticate(event, p === '/auth/token' ? { early: 300 } : {}); return resolve(event); }
   if (p === '/map') return new Response(null, { status: 308, headers: { location: '/map/' } });
   if (!p.startsWith('/map/')) return resolve(event);
   let rel;

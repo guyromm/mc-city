@@ -12,18 +12,31 @@ function claims(tok) {
 }
 
 let sso = null; // { token, user } from /auth/token, or null
-export async function loadAuthToken() {
-  try {
-    const r = await fetch('/auth/token', { cache: 'no-store' });
-    const j = r.ok ? await r.json() : null;
-    sso = j?.token ? j : null;
-  } catch { /* offline: keep the last one until it expires */ }
-  return sso;
+let inflight = null; // one /auth/token fetch at a time
+export function loadAuthToken() {
+  return (inflight ??= (async () => {
+    try {
+      const r = await fetch('/auth/token', { cache: 'no-store' });
+      const j = r.ok ? await r.json() : null;
+      sso = j?.token ? j : null;
+    } catch { /* offline: keep the last one until it expires */ }
+    finally { inflight = null; }
+    return sso;
+  })());
 }
+// For claude-ui's refreshToken prop: a send that got 401 renews and retries once.
+export const refreshToken = loadAuthToken;
+
+// A fixed timer alone fails in a suspended phone tab (board #4807: 7 messages lost): check every minute, and at once when
+// the tab comes back or gets focus; renew when under 5 min are left (/auth/token then refreshes through auth).
+const left = () => { const c = sso?.token && claims(sso.token); return c ? c.exp - Date.now() / 1000 : -1; };
+const check = () => { if (left() < 300) loadAuthToken(); };
 let timer;
 export function keepAuthToken() {
   if (typeof window === 'undefined' || timer) return;
-  timer = setInterval(loadAuthToken, 5 * 60_000);
+  timer = setInterval(check, 60_000);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+  window.addEventListener('focus', check);
 }
 
 export function getToken() {

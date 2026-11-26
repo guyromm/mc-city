@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/state';
   import ClaudeDock from '$claude-ui/ClaudeDock.svelte';
-  import { isAdmin, getToken } from '$lib/auth';
+  import { isAdmin, getToken, refreshToken } from '$lib/auth';
   import { PGRST } from '$lib/api';
   let { children } = $props();
   // narration (text-to-speech) off unless the viewer turned it on
@@ -11,7 +11,7 @@
 {@render children()}
 
 <!-- claude-ui chat on every page, admins only (it re-checks isAdmin() itself) -->
-<ClaudeDock pgrst={PGRST} {getToken} {isAdmin} hidden={page.url.pathname.startsWith('/claude')} />
+<ClaudeDock pgrst={PGRST} {getToken} {refreshToken} {isAdmin} hidden={page.url.pathname.startsWith('/claude')} />
 
 <style>
   :global(:root) {
