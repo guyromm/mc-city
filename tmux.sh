@@ -1,6 +1,6 @@
 #!/bin/bash
 # minecraft (minecraft.webgma.co.il) worker registry (pattern from miko/pethelp/allocator). Created by resource-manager, #288.
-#   bash tmux.sh                      (re)create the session: Claude in window "claude", then start_all
+#   bash tmux.sh [--force]            (re)create the session: Claude in window "claude", then start_all (no terminal: refuses unless --force)
 #   source tmux.sh && start <worker>  (also: stop <worker>, workers, start_all [-n = dry run], notify_claude "msg")
 # Every worker is a bash `while true` loop that re-execs its one-shot command each pass. Secrets are sourced
 # from .env INSIDE the loop, never expanded into these strings (argv is readable host-wide via ps).
@@ -76,5 +76,10 @@ notify_claude() {
 # Run-as-script check: `(return 0)` succeeds only when SOURCED. The old test, BASH_SOURCE[0] == $0, was ALSO true for
 # `bash -c 'source "$0"' tmux.sh`, which is how workers called notify_claude: on 2026-11-12 14:02 that killed the whole
 # auth tmux session (Claude included). `if`, not `&&`: a false test must not become the file's exit status (@reboot).
-if ! (return 0 2>/dev/null); then tmux kill-session -t "$SESSION" 2>/dev/null; create_claude; start_all; fi
+# Bare run without a terminal (cron, a script, node execFileSync) refuses instead of wiping the session (board #4720:
+# sippur 11-25, twitter-scraper 11-26). From a terminal, or with --force, it rebuilds as before.
+if ! (return 0 2>/dev/null); then
+    if [ -t 0 ] || [ "${1:-}" = "--force" ]; then tmux kill-session -t "$SESSION" 2>/dev/null; create_claude; start_all
+    else echo "tmux.sh: no terminal, refusing to rebuild session $SESSION (use --force, or source it for the helpers)" >&2; exit 1; fi
+fi
 true
