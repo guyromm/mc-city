@@ -91,14 +91,16 @@ async function isLive(sid) {
 }
 
 /** Sets event.locals.auth from the cookies (refreshing through auth when the 15-min token ran out). */
-export async function authenticate(event) {
+// minecraft (board #4921 item 12, #4807): early = renew when fewer than `early` seconds are left (only /auth/token passes
+// it, so one renewal per page check, not a race of parallel requests). A failed early renewal keeps the still-valid token.
+export async function authenticate(event, { early = 0 } = {}) {
 	const { cookies } = event;
 	event.locals.auth = null;
 	let token = cookies.get(AT), c = token && (await verify(token));
-	if (!c && cookies.get(RT)) {
+	if ((!c || c.exp - Date.now() / 1000 < early) && cookies.get(RT)) {
 		const r = await post('/api/refresh', { refresh_token: cookies.get(RT) });
 		if (r.status === 200) { store(cookies, r.body); token = r.body.access_token; c = await verify(token); }
-		else if (r.status === 401) clear(cookies); // revoked at auth: signed out here too
+		else if (r.status === 401) { clear(cookies); c = null; } // revoked at auth: signed out here too
 		// other errors (auth down): stay signed out for this request, keep the refresh handle for the next one
 	}
 	if (!c) return;
