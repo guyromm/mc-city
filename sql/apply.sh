@@ -46,6 +46,8 @@ fi
 if [ -x ../claude-ui/sql/apply.sh ]; then
   DBURI="dbname=$DB" CLAUDE_UI_SCHEMA="${CLAUDE_UI_SCHEMA:-$PROJECT}" CLAUDE_UI_ADMIN_FN="${CLAUDE_UI_ADMIN_FN:-$PROJECT.is_admin()}" \
     CLAUDE_UI_ANON_ROLE="${PROJECT}_anon" CLAUDE_UI_AUTH_ROLE="${PROJECT}_web" ../claude-ui/sql/apply.sh >/dev/null
+  # board #5130: CHECK OPTION on claude-ui's api views (until our claude-ui pin carries upstream review 527)
+  psql -d "$DB" -v ON_ERROR_STOP=1 -q -f migrations/2026-11-28-claude-views-check-option.sql
 fi
 psql -d "$DB" -qc "NOTIFY pgrst, 'reload schema';"
 [ -n "$errs" ] && { echo "UNEXPECTED ERRORS ($DB):"; echo "$errs"; exit 1; }
